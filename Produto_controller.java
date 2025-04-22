@@ -6,7 +6,8 @@ import com.bdzin.demonio.models.Produto;
 
 import java.util.List;
 
-
+//necessário Cross Origins pra aceitar fetch do javascript
+@CrossOrigin(origins = "http://127.0.0.1:5501")
 @RestController
 @RequestMapping("/produtos")
 public class Produto_controller {
