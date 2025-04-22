@@ -1,8 +1,8 @@
-package com.pooltaria.projeto.controllers;
+package com.bdzin.demonio.controllers;
 import org.springframework.web.bind.annotation.*;
 
-import com.pooltaria.projeto.services.Produto_service;
-import com.pooltaria.projeto.model.Produto;
+import com.bdzin.demonio.services.Produto_service;
+import com.bdzin.demonio.models.Produto;
 
 import java.util.List;
 
@@ -22,8 +22,11 @@ public class Produto_controller {
     }
 
     @PostMapping
-    public Produto Adicionar(@RequestBody Produto produto){
-        return service.salvar(produto);
+    public String Adicionar(
+        @RequestParam String nome,
+        @RequestParam double preco){
+        service.salvar(new Produto(nome,preco));
+        return "Add";
     }
 
     @DeleteMapping("/{Id}")
